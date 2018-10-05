@@ -16,7 +16,7 @@ namespace Prework
             int yearFour = 1997;
             Console.WriteLine($"Perfect Sequence --- Input: [{string.Join(",", myArr)}]... Expected Output: Yes, Output: {PerfectSequence(myArr)}.");
             Console.WriteLine($"Perfect Sequence --- Input: [{string.Join(",", negArr)}]... Expected Output: No, Output: {PerfectSequence(negArr)}.");
-            Console.WriteLine($"2D Sum --- Input: [[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12, 13, 14, 15]... Expected Output: [15, 40, 65], Output: [{string.Join(",",SumRows(sumArr))}].");
+            Console.WriteLine($"2D Sum --- Input: [[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12, 13, 14, 15]]... Expected Output: [15, 40, 65], Output: [{string.Join(",",SumRows(sumArr))}].");
             Console.WriteLine($"Leap Year --- Input: {yearOne} Expected Output: False, Output: {IsLeapYear(yearOne)}");
             Console.WriteLine($"Leap Year --- Input: {yearTwo} Expected Output: True, Output: {IsLeapYear(yearTwo)}");
             Console.WriteLine($"Leap Year --- Input: {yearThree} Expected Output: True, Output: {IsLeapYear(yearThree)}");
