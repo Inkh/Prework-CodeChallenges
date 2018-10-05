@@ -22,7 +22,7 @@ An array of integers, and the number chosen.
 8
 
 ### Output
-![image info](./assets/Selection.PNG)
+![image info](assets/Selection.PNG)
 
 <hr />
 
@@ -45,7 +45,7 @@ For example, 1997 is not a leap year, but 1996 is. 1900 is not a leap year, but 
 Note: This is not a trick problem. Edge cases do not need to be taken into consideration when creating a solution.
 
 ### Output
-![image info](./assets/Leap.PNG)
+![image info](assets/Leap.PNG)
 
 <hr />
 
@@ -72,7 +72,7 @@ Yes
 1 * 3 * 2 = 6 && 1 + 3 + 2 = 6
 
 ### Output
-![image info](./assets/sequence.PNG)
+![image info](assets/sequence.PNG)
 
 <hr />
 
