@@ -6,11 +6,12 @@ namespace Prework
     {
         static void Main(string[] args)
         {
-            UserInput();
+            //UserInput();
             int[] myArr = { 1, 2, 3 };
-            int[] selectArr = { 6, 4, 4, 1, 3 };
-            int[,] sumArray = new int[3, 5] { { 1, 2, 3, 4, 5 }, { 6, 7, 8, 9, 10 }, { 11, 12, 13, 14, 15 } };
+            int[,] sumArr = new int[3, 5] { { 1, 2, 3, 4, 5 }, { 6, 7, 8, 9, 10 }, { 11, 12, 13, 14, 15 } };
             Console.WriteLine($"Perfect Sequence --- Input: [{string.Join(",", myArr)}]... Expected Output: Yes, Output: {PerfectSequence(myArr)}.");
+            Console.WriteLine($"2D Sum --- Input: [[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12, 13, 14, 15]... Expected Output: [15, 40, 65], Output: [{string.Join(",",Sum(sumArr))}].");
+
         }
         static void UserInput()
         {
@@ -80,6 +81,10 @@ namespace Prework
             int product = 1;
             foreach (int num in arr)
             {
+                if (num < 0)
+                {
+                    return "No";
+                }
                 sum += num;
                 product *= num;
             }
@@ -88,6 +93,21 @@ namespace Prework
                 return "Yes";
             }
             return "No";
+        }
+
+        static int[] Sum(int[,] arr)
+        {
+            int[] result = new int[arr.GetLength(0)];
+            for (int i = 0; i < arr.GetLength(0); i++)
+            {
+                int sum = 0;
+                for (int k = 0; k < arr.GetLength(1); k++)
+                {
+                    sum += arr[i, k];
+                }
+                result[i] = sum;
+            }
+            return result;
         }
     }
 }
