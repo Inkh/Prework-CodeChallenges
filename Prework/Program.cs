@@ -16,11 +16,11 @@ namespace Prework
             int yearFour = 1997;
             Console.WriteLine($"Perfect Sequence --- Input: [{string.Join(",", myArr)}]... Expected Output: Yes, Output: {PerfectSequence(myArr)}.");
             Console.WriteLine($"Perfect Sequence --- Input: [{string.Join(",", negArr)}]... Expected Output: No, Output: {PerfectSequence(negArr)}.");
-            Console.WriteLine($"2D Sum --- Input: [[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12, 13, 14, 15]... Expected Output: [15, 40, 65], Output: [{string.Join(",",Sum(sumArr))}].");
-            Console.WriteLine($"Leap Year --- Input: {yearOne} Expected Output: False, Output: {LeapYear(yearOne)}");
-            Console.WriteLine($"Leap Year --- Input: {yearTwo} Expected Output: True, Output: {LeapYear(yearTwo)}");
-            Console.WriteLine($"Leap Year --- Input: {yearThree} Expected Output: True, Output: {LeapYear(yearThree)}");
-            Console.WriteLine($"Leap Year --- Input: {yearFour} Expected Output: False, Output: {LeapYear(yearFour)}");
+            Console.WriteLine($"2D Sum --- Input: [[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12, 13, 14, 15]... Expected Output: [15, 40, 65], Output: [{string.Join(",",SumRows(sumArr))}].");
+            Console.WriteLine($"Leap Year --- Input: {yearOne} Expected Output: False, Output: {IsLeapYear(yearOne)}");
+            Console.WriteLine($"Leap Year --- Input: {yearTwo} Expected Output: True, Output: {IsLeapYear(yearTwo)}");
+            Console.WriteLine($"Leap Year --- Input: {yearThree} Expected Output: True, Output: {IsLeapYear(yearThree)}");
+            Console.WriteLine($"Leap Year --- Input: {yearFour} Expected Output: False, Output: {IsLeapYear(yearFour)}");
 
         }
         static void UserInput()
@@ -63,10 +63,10 @@ namespace Prework
                     flagTwo = false;
                 }
             }
-            Selection(userArr, int.Parse(userInput));
+            MaxScore(userArr, int.Parse(userInput));
         }
 
-        static int Selection(int[] arr, int num)
+        static int MaxScore(int[] arr, int num)
         {
             int counter = 0;
             foreach (int ele in arr)
@@ -80,7 +80,7 @@ namespace Prework
             return num*counter;
         }
 
-        static bool LeapYear(int year)
+        static bool IsLeapYear(int year)
         {
             if (year % 4 == 0)
             {
@@ -120,7 +120,7 @@ namespace Prework
             return "No";
         }
 
-        static int[] Sum(int[,] arr)
+        static int[] SumRows(int[,] arr)
         {
             int[] result = new int[arr.GetLength(0)];
             for (int i = 0; i < arr.GetLength(0); i++)
