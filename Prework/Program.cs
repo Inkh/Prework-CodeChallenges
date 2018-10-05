@@ -7,13 +7,22 @@ namespace Prework
         static void Main(string[] args)
         {
             int[] myArr = { 1, 2, 3 };
-            PerfectSequence(myArr);
-            Console.WriteLine($"Input: [{string.Join(",", myArr)}]. Expected Output: Yes, Output: {PerfectSequence(myArr)}.");
+            int[] selectArr = { 6, 4, 4, 1, 3 };
+            Console.WriteLine($"Perfect Sequence --- Input: [{string.Join(",", myArr)}]... Expected Output: Yes, Output: {PerfectSequence(myArr)}.");
+            Console.WriteLine($"Selection --- Input: ([{string.Join(",", selectArr)}], 4)... Expected Output: 8, Output: {Selection(selectArr, 6)}.");
         }
 
         static int Selection(int[] arr, int num)
         {
-            return 24;
+            int counter = 0;
+            foreach (int ele in arr)
+            {
+                if (ele == num)
+                {
+                    counter++;
+                }
+            }
+            return num*counter;
         }
 
         static bool LeapYear(int year)
