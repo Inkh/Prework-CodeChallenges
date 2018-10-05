@@ -9,8 +9,16 @@ namespace Prework
             //UserInput();
             int[] myArr = { 1, 2, 3 };
             int[,] sumArr = new int[3, 5] { { 1, 2, 3, 4, 5 }, { 6, 7, 8, 9, 10 }, { 11, 12, 13, 14, 15 } };
+            int yearOne = 1900;
+            int yearTwo = 2000;
+            int yearThree = 1996;
+            int yearFour = 1997;
             Console.WriteLine($"Perfect Sequence --- Input: [{string.Join(",", myArr)}]... Expected Output: Yes, Output: {PerfectSequence(myArr)}.");
             Console.WriteLine($"2D Sum --- Input: [[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12, 13, 14, 15]... Expected Output: [15, 40, 65], Output: [{string.Join(",",Sum(sumArr))}].");
+            Console.WriteLine($"Leap Year --- Input: {yearOne} Expected Output: False, Output: {LeapYear(yearOne)}");
+            Console.WriteLine($"Leap Year --- Input: {yearTwo} Expected Output: True, Output: {LeapYear(yearTwo)}");
+            Console.WriteLine($"Leap Year --- Input: {yearThree} Expected Output: True, Output: {LeapYear(yearThree)}");
+            Console.WriteLine($"Leap Year --- Input: {yearFour} Expected Output: False, Output: {LeapYear(yearFour)}");
 
         }
         static void UserInput()
@@ -72,7 +80,22 @@ namespace Prework
 
         static bool LeapYear(int year)
         {
-            return true;
+            if (year % 4 == 0)
+            {
+                if (year % 100 == 0 && year % 400 == 0)
+                {
+                    return true;
+                }
+                else if (year % 100 == 0)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         static string PerfectSequence(int[] arr)
