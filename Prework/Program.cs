@@ -8,9 +8,20 @@ namespace Prework
         {
             UserInput();
             int[] myArr = { 1, 2, 3 };
-            int[] selectArr = { 6, 4, 4, 1, 3 };
-            int[,] sumArray = new int[3, 5] { { 1, 2, 3, 4, 5 }, { 6, 7, 8, 9, 10 }, { 11, 12, 13, 14, 15 } };
+            int[] negArr = { 0, 2, -2 };
+            int[,] sumArr = new int[3, 5] { { 1, 2, 3, 4, 5 }, { 6, 7, 8, 9, 10 }, { 11, 12, 13, 14, 15 } };
+            int yearOne = 1900;
+            int yearTwo = 2000;
+            int yearThree = 1996;
+            int yearFour = 1997;
             Console.WriteLine($"Perfect Sequence --- Input: [{string.Join(",", myArr)}]... Expected Output: Yes, Output: {PerfectSequence(myArr)}.");
+            Console.WriteLine($"Perfect Sequence --- Input: [{string.Join(",", negArr)}]... Expected Output: No, Output: {PerfectSequence(negArr)}.");
+            Console.WriteLine($"2D Sum --- Input: [[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12, 13, 14, 15]]... Expected Output: [15, 40, 65], Output: [{string.Join(",",SumRows(sumArr))}].");
+            Console.WriteLine($"Leap Year --- Input: {yearOne} Expected Output: False, Output: {IsLeapYear(yearOne)}");
+            Console.WriteLine($"Leap Year --- Input: {yearTwo} Expected Output: True, Output: {IsLeapYear(yearTwo)}");
+            Console.WriteLine($"Leap Year --- Input: {yearThree} Expected Output: True, Output: {IsLeapYear(yearThree)}");
+            Console.WriteLine($"Leap Year --- Input: {yearFour} Expected Output: False, Output: {IsLeapYear(yearFour)}");
+
         }
         static void UserInput()
         {
@@ -52,10 +63,10 @@ namespace Prework
                     flagTwo = false;
                 }
             }
-            Selection(userArr, int.Parse(userInput));
+            MaxScore(userArr, int.Parse(userInput));
         }
 
-        static int Selection(int[] arr, int num)
+        static int MaxScore(int[] arr, int num)
         {
             int counter = 0;
             foreach (int ele in arr)
@@ -69,9 +80,24 @@ namespace Prework
             return num*counter;
         }
 
-        static bool LeapYear(int year)
+        static bool IsLeapYear(int year)
         {
-            return true;
+            if (year % 4 == 0)
+            {
+                if (year % 100 == 0 && year % 400 == 0)
+                {
+                    return true;
+                }
+                else if (year % 100 == 0)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         static string PerfectSequence(int[] arr)
@@ -80,6 +106,10 @@ namespace Prework
             int product = 1;
             foreach (int num in arr)
             {
+                if (num < 0)
+                {
+                    return "No";
+                }
                 sum += num;
                 product *= num;
             }
@@ -88,6 +118,21 @@ namespace Prework
                 return "Yes";
             }
             return "No";
+        }
+
+        static int[] SumRows(int[,] arr)
+        {
+            int[] result = new int[arr.GetLength(0)];
+            for (int i = 0; i < arr.GetLength(0); i++)
+            {
+                int sum = 0;
+                for (int k = 0; k < arr.GetLength(1); k++)
+                {
+                    sum += arr[i, k];
+                }
+                result[i] = sum;
+            }
+            return result;
         }
     }
 }
